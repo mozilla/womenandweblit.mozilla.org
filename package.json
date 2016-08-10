@@ -1,0 +1,37 @@
+{
+  "name": "womenandweblit.mozilla.org",
+  "version": "1.0.0",
+  "description": "Women and Web Literacy",
+  "scripts": {
+    "autoprefix": "node scripts/autoprefix.js",
+    "build:folders": "shx mkdir -p dest/css",
+    "build:pug": "node scripts/build-pug.js",
+    "build:sass": "node-sass source/sass/main.scss dest/css/main.compiled.css && npm run autoprefix",
+    "build": "shx rm -rf dest && npm run build:folders && npm run build:pug && npm run build:sass && npm run copy:images",
+    "copy:images": "shx cp -r source/images dest/images",
+    "server": "live-server ./dest --port=2040",
+    "start": "npm i && npm run build && npm-run-all --parallel server watch:**",
+    "watch:images": "chokidar 'source/images/*' -c 'npm run copy:images'",
+    "watch:markdown": "chokidar 'source/markdown/**/*.md' -c 'npm run build:pug'",
+    "watch:pug": "chokidar 'source/index.pug' -c 'npm run build:pug'",
+    "watch:sass": "chokidar 'source/sass/main.scss' -c 'npm run build:sass'"
+  },
+  "author": "Mozilla",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "autoprefixer": "^6.2.3",
+    "chokidar-cli": "^1.2.0",
+    "jstransformer-markdown": "^1.1.0",
+    "live-server": "^0.9.0",
+    "node-sass": "^3.4.2",
+    "npm-run-all": "^1.4.0",
+    "postcss": "^5.1.2",
+    "postcss-cli": "^2.3.3",
+    "pug": "^2.0.0-beta5",
+    "shelljs": "^0.7.3",
+    "shx": "^0.1.2"
+  },
+  "dependencies": {
+    "mofo-bootstrap": "^1.0.1"
+  }
+}

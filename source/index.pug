@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='Women and Web Literacy')
+
+    meta(property='og:type', content='website')
+    meta(property='og:site_name', content='Women and Web Literacy')
+    meta(property='og:locale', content='en_US')
+    meta(property='og:url', content='https://womenandweblit.mozilla.org')
+    meta(property='og:image', content='TODO')
+    meta(property='og:title', content='Women and Web Literacy')
+    meta(property='og:description', content='Women and Web Literacy')
+
+    link(rel='stylesheet', href='css/main.compiled.css')
+    link(rel='stylesheet', href='//code.cdn.mozilla.net/fonts/fira.css')
+
+    title Women and Web Literacy
+  body
+    header.container
+      img(src='images/logo.png')
+
+  .container
+    .row
+      .col-sm-12
+        include:markdown markdown/index.md
+
+    .row
+      .col-sm-4
+        include:markdown markdown/resources/case-studies.md
+      .col-sm-4
+        include:markdown markdown/resources/reports.md
+      .col-sm-4
+        include:markdown markdown/resources/teaching-resources.md
+
+  footer

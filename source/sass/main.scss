@@ -1,0 +1,19 @@
+@import '../../node_modules/mofo-bootstrap/dest/css/mofo-bootstrap';
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 960px;
+  margin: 20px auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
