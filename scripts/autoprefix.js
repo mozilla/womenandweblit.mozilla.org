@@ -1,3 +1,5 @@
+'use strict';
+
 let autoprefixer = require(`autoprefixer`);
 let postcss = require(`postcss`);
 let shelljs = require(`shelljs`);

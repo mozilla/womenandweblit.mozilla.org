@@ -1,3 +1,5 @@
+'use strict';
+
 let pug = require(`pug`);
 let shelljs = require(`shelljs`);
 
