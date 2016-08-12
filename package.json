@@ -9,6 +9,7 @@
     "build:sass": "node-sass source/sass/main.scss dest/css/main.compiled.css && npm run autoprefix",
     "build": "shx rm -rf dest && npm run build:folders && npm run build:pug && npm run build:sass && npm run copy:images",
     "copy:images": "shx cp -r source/images dest/images",
+    "deploy": "node scripts/deploy.js",
     "server": "live-server ./dest --port=2040",
     "start": "npm i && npm run build && npm-run-all --parallel server watch:**",
     "watch:images": "chokidar 'source/images/*' -c 'npm run copy:images'",
