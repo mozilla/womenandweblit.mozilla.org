@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- node
+cache:
+  directories:
+  - node_modules
+after_success:
+- npm run deploy
+env:
+  global:
+  - secure: "HRNoCqrzyNjkIoO8jV+U0Q2botBTw3xLkRTsmpe0D/s0fqZe3w6sHwzw3YK4CgQvErt3zAT4y11j5hcLT+GNOr8vztaErqJiLbW5sSdZV/0FXONAiGKjHrLqN9uK62HSQgpw9RYK03YLm32WDSm0X5fnn3lwPBqkggao/TKuKt8cItWOQ2qE/D7QdwP6yPajnbZaBLyrLGOYMFngIpFijg0AnuSfO08uWTQ504JVFJ9Qr1ZkpWJ5BCu1dhCTjK2W/URfGVBVMjh98Dte9Fls0m5W41CmsF3qqEsURSNnqjEUv8e/TjSNXhbkMPGrV0cPH2quCPZhw5xVxmsv4znLYOdw9EuxAU54s3fU2fDIZOSdqeDqEMWhQRNKcvXNlKoZD/0+gk0q9WX5Xemgwf4NnFLbot6N4DJUZemSJ/yHSsMV53F3OClthCz6D9BzE8etUiYzaBX765J+DIGGJhInBpqsQlttBZSZEQLJbZyqYO/9giUdtR/FcRGjSGDM2FHE/eiZtz7YvjRC4Zl/a97sjRUsgL47DhYH7jsoKYVIcKfLtB/jLlCX9UJrJ2KQe1opa6BTHvWbJiSbW9EvTDR9M8DhXgZqB6GuINMx1CCjsc6kqUNwkY2eetw4xoxSkZfuxOB3P//33i44qwkxJ/tr9vrBL5hQ5T/fmem0vl6Ob8w="

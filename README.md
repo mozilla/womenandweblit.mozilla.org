@@ -1,5 +1,8 @@
 # Women and Web Literacy
 
+[![Build Status](https://travis-ci.org/mozilla/womenandweb.svg)](https://travis-ci.org/mozilla/woemnandweb)
+[![Shipping fast with zenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.com)
+
 This repository hosts the code used to power the Women and Web Literacy hub's website.
 
 ## Development
