@@ -1,12 +1,10 @@
-var NodeGit = require(`nodegit`);
-var shell = require(`shelljs`);
-var pathToRepo = require(`path`).resolve(`.`);
+let NodeGit = require(`nodegit`);
+let shell = require(`shelljs`);
+let pathToRepo = require(`path`).resolve(`.`);
 
-var getStatus = (repo) => {
-  return repo.getStatus();
-};
+let getStatus = (repo) => repo.getStatus();
 
-var runDeploy = () => {
+let runDeploy = () => {
   shell.echo(`Running deployment now...`);
 
   shell.exec(`git checkout master`);
@@ -16,6 +14,9 @@ var runDeploy = () => {
 
   shell.exec(`npm i`);
   shell.exec(`npm run build`);
+
+  shell.echo(`${new Date}\n\n\n`).to(`last-built.txt`);
+  shell.exec(`git log -n 1 >> last-built.txt`);
 
   shell.exec(`git branch -D gh-pages`);
   shell.exec(`git checkout --orphan gh-pages`);
@@ -27,8 +28,6 @@ var runDeploy = () => {
   shell.echo(`!images\n`).toEnd(`.gitignore`);
   shell.echo(`!index.html\n`).toEnd(`.gitignore`);
   shell.echo(`!last-built.txt\n`).toEnd(`.gitignore`);
-
-  shell.echo(new Date).to(`last-built.txt`);
 
   shell.mv(`dest/*`, `./`);
 
