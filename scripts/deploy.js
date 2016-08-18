@@ -1,7 +1,7 @@
 let shell = require(`shelljs`);
 let pathToRepo = require(`path`).resolve(`.`);
 
-if(process.env.TRAVIS_PULL_REQUEST) {
+if(process.env.TRAVIS_PULL_REQUEST !== "false") {
   shell.echo(`Skipping deployment for pull request!`);
   process.exit(0);
 }
