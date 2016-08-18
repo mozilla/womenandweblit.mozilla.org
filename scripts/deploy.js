@@ -21,8 +21,6 @@ let runDeploy = () => {
   shell.echo(`${new Date}\n\n\n`).to(`last-built.txt`);
   shell.exec(`git log -n 1 >> last-built.txt`);
 
-  shell.mv(`dest/*`, `./`);
-
   shell.rm(`.gitignore`);
 
   shell.echo(`/*\n`).toEnd(`.gitignore`);
@@ -35,7 +33,7 @@ let runDeploy = () => {
 
   shell.exec(`git reset`);
   shell.exec(`git add .`);
-  shell.exec(`git commit -m 'deploy.js-ified'`);
+  shell.exec(`git commit -m 'Deployed via Travis'`);
   shell.exec(`git push -f https://${process.env.GH_TOKEN}@github.com/mozilla/womenandweb.git gh-pages:gh-pages`);
 
   shell.echo(`Finished deploying!`);
