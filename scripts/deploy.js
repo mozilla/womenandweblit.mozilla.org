@@ -13,8 +13,8 @@ let runDeploy = () => {
   shell.echo(`Running deployment now...`);
 
   shell.exec(`git stash`);
-  shell.exec(`git checkout gh-pages`);
-  shell.exec(`git pull origin master`);
+  shell.exec(`git fetch origin master:master`)
+  shell.exec(`git checkout --orphan gh-pages master`);
 
   shell.exec(`npm run build`);
 
@@ -23,14 +23,20 @@ let runDeploy = () => {
 
   shell.mv(`dest/*`, `./`);
 
+  shell.rm(`.gitignore`);
+
+  shell.echo(`/*\n`).toEnd(`.gitignore`);
+  shell.echo(`!css\n`).toEnd(`.gitignore`);
+  shell.echo(`!images\n`).toEnd(`.gitignore`);
+  shell.echo(`!index.html\n`).toEnd(`.gitignore`);
+  shell.echo(`!last-built.txt\n`).toEnd(`.gitignore`);
+
+  shell.mv(`dest/*`, `./`);
+
   shell.exec(`git reset`);
   shell.exec(`git add .`);
-  shell.exec(`git add -f css`);
-  shell.exec(`git add -f images`);
-  shell.exec(`git add -f index.html`);
-  shell.exec(`git add -f last-built.txt`);
   shell.exec(`git commit -m 'deploy.js-ified'`);
-  shell.exec(`git push https://${process.env.GH_TOKEN}@github.com/mozilla/womenandweb.git gh-pages:gh-pages`);
+  shell.exec(`git push -f https://${process.env.GH_TOKEN}@github.com/mozilla/womenandweb.git gh-pages:gh-pages`);
 
   shell.echo(`Finished deploying!`);
 };
