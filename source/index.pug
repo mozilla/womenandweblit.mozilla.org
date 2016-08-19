@@ -19,14 +19,15 @@ html
 
     title Women and Web Literacy
   body
-    header.container
-      a.mozilla-logo(href='https://www.mozilla.org')
-        img(src='images/logo.png',target='_blank')
+    header.p-y-3
+      .container
+        a.mozilla-logo(href='https://www.mozilla.org')
+          img(src='images/logo.png',target='_blank')
 
-      h1 Women & Web Literacy
-      p Working towards an open, safe and innovative web for women everywhere.
+        h1.center-text Women & Web Literacy
+        p.center-text Working towards an open, safe and innovative web for women everywhere.
 
-  .container
+  .container.m-y-2
     .row
       .col-sm-12
         h2 What We Do
@@ -36,44 +37,51 @@ html
       .col-sm-6
         include:markdown markdown/what-we-do/2.md
 
-    .row
-      .col-sm-12
-        h2 Mozilla Clubs for Women and Girls
-    .row
-      .col-sm-12 TODO : IMAGES
-    .row
-      .col-sm-8
-        include:markdown markdown/mcwg/1.md
-      .col-sm-4
-        include:markdown markdown/mcwg/2.md
+  .bg-gray.m-y-2
+    .container.p-y-3
+      .row
+        .col-sm-12
+          h2.center-text Mozilla Clubs for Women and Girls
+      .row
+        .col-sm-12 TODO : IMAGES
+      .row
+        .col-sm-9
+          include:markdown markdown/mcwg/1.md
+        .col-sm-3.bg-blue.p-y-2
+          include:markdown markdown/mcwg/2.md
+          a.btn(href='#NEED_URL') Learn More
 
+  .container.m-y-2
     .row
       .col-sm-12
-        h2 More of our Work
+        h2.center-text More of our Work
     .row
-      .col-sm-4
-        include:markdown markdown/resources/case-studies.md
       .col-sm-4
         include:markdown markdown/resources/teaching-resources.md
       .col-sm-4
+        include:markdown markdown/resources/case-studies.md
+      .col-sm-4
         include:markdown markdown/resources/reports.md
     .row
-      .col-sm-12 View All Resources
+      .col-sm-12.center-text View All Resources
 
-    .row
-      .col-sm-12
-        h2 Diversity and Inclusion across Mozilla
-        p Our network is up to some exciting things! Here are some of the programs we’re working that focus on gender equality. Learn more about how our network is working on Web Literacy and Digital Inclusion by visiting our blog.
-    .row
-      .col-sm-4
-        include:markdown markdown/posts/hive-nyc.md
-      .col-sm-4
-        include:markdown markdown/posts/mb-thoughts.md
-      .col-sm-4
-        include:markdown markdown/posts/another.md
+  .bg-blue.p-y-2
+    .container
+      .row
+        .col-sm-12.center-text
+          h2.white Diversity and Inclusion across Mozilla
+          p.white Our network is up to some exciting things! Here are some of the programs we’re working that focus on gender equality. Learn more about how our network is working on Web Literacy and Digital Inclusion by visiting our blog.
+      .row
+        .col-sm-4
+          include:markdown markdown/posts/hive-nyc.md
+        .col-sm-4
+          include:markdown markdown/posts/mb-thoughts.md
+        .col-sm-4
+          include:markdown markdown/posts/another.md
 
+  .container
     .row
-      .col-sm-12
+      .col-sm-12.center-text
         h2 We are working with
         p Mozilla is proud to be working with a range of organizations who are collaborating to increase Web Literacy amongst women around the world. Visit their sites to see how they are changing the face of women online.
 

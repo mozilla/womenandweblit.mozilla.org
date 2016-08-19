@@ -1,15 +1,15 @@
 @import '../../node_modules/mofo-bootstrap/dest/css/mofo-bootstrap';
+@import '../../node_modules/mofo-bootstrap/src/scss/custom/_colors';
+
+// Non-Mofo-Bootstrap colors
+
+$wwl-green: #29a581;
 
 // Resets & Primitives
 
 html, body {
   margin: 0;
   padding: 0;
-}
-
-body {
-  max-width: 960px;
-  margin: 20px auto;
 }
 
 img {
@@ -20,7 +20,42 @@ ul {
   list-style: none;
 }
 
+h2 {
+  color: $wwl-green;
+}
+
+// Utility Classes
+
+.center-text {
+  text-align: center;
+}
+
+.bg-gray {
+  background: rgba(0,0,0,0.2);
+}
+
+.bg-blue {
+  background: #3fbee0;
+}
+
+.bg-white {
+  background: $white;
+}
+
+.white {
+  color: $white;
+}
+
 // Main Page
+
+header {
+  background: $wwl-green;
+  color: $white;
+
+  h1 {
+    color: $white;
+  }
+}
 
 .mozilla-logo img {
   width: 10%;
