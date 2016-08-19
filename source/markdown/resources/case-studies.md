@@ -1,7 +1,7 @@
-**Teaching Resources**
+**Case Studies**
 
-- Mozilla Club for Women Training Report from Cape Town
-- Mozilla Club for Women Training Report from Nairobi
-- Mozilla Club Web Titans
-- Mozilla Club Lookout Hill
-- Mozilla Club COSAT
+- [Mozilla Club for Women Training Report from Cape Town](#NEED_URL)
+- [Mozilla Club for Women Training Report from Nairobi](#NEED_URL)
+- [Mozilla Club Web Titans](#NEED_URL)
+- [Mozilla Club Lookout Hill](#NEED_URL)
+- [Mozilla Club COSAT](#NEED_URL)

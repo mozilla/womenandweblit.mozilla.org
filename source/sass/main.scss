@@ -1,5 +1,7 @@
 @import '../../node_modules/mofo-bootstrap/dest/css/mofo-bootstrap';
 
+// Resets & Primitives
+
 html, body {
   margin: 0;
   padding: 0;
@@ -16,4 +18,10 @@ img {
 
 ul {
   list-style: none;
+}
+
+// Main Page
+
+.mozilla-logo img {
+  width: 10%;
 }

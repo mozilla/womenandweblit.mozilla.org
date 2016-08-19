@@ -20,19 +20,61 @@ html
     title Women and Web Literacy
   body
     header.container
-      img(src='images/logo.png')
+      a.mozilla-logo(href='https://www.mozilla.org')
+        img(src='images/logo.png',target='_blank')
+
+      h1 Women & Web Literacy
+      p Working towards an open, safe and innovative web for women everywhere.
 
   .container
     .row
       .col-sm-12
-        include:markdown markdown/index.md
+        h2 What We Do
+    .row
+      .col-sm-6
+        include:markdown markdown/what-we-do/1.md
+      .col-sm-6
+        include:markdown markdown/what-we-do/2.md
 
+    .row
+      .col-sm-12
+        h2 Mozilla Clubs for Women and Girls
+    .row
+      .col-sm-12 TODO : IMAGES
+    .row
+      .col-sm-8
+        include:markdown markdown/mcwg/1.md
+      .col-sm-4
+        include:markdown markdown/mcwg/2.md
+
+    .row
+      .col-sm-12
+        h2 More of our Work
     .row
       .col-sm-4
         include:markdown markdown/resources/case-studies.md
       .col-sm-4
-        include:markdown markdown/resources/reports.md
-      .col-sm-4
         include:markdown markdown/resources/teaching-resources.md
+      .col-sm-4
+        include:markdown markdown/resources/reports.md
+    .row
+      .col-sm-12 View All Resources
+
+    .row
+      .col-sm-12
+        h2 Diversity and Inclusion across Mozilla
+        p Our network is up to some exciting things! Here are some of the programs we’re working that focus on gender equality. Learn more about how our network is working on Web Literacy and Digital Inclusion by visiting our blog.
+    .row
+      .col-sm-4
+        include:markdown markdown/posts/hive-nyc.md
+      .col-sm-4
+        include:markdown markdown/posts/mb-thoughts.md
+      .col-sm-4
+        include:markdown markdown/posts/another.md
+
+    .row
+      .col-sm-12
+        h2 We are working with
+        p Mozilla is proud to be working with a range of organizations who are collaborating to increase Web Literacy amongst women around the world. Visit their sites to see how they are changing the face of women online.
 
   footer
