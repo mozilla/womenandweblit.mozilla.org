@@ -1,4 +1,4 @@
-**Teaching Resources**
+#### Teaching Resources
 
 - [Teaching Kit: Combatting Cyber Violence Against Women and Girls](#NEED_URL)
 - [Teaching Kit: Hacking My Media Online](#NEED_URL)

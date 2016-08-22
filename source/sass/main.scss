@@ -18,12 +18,36 @@ img {
 
 ul {
   list-style: none;
+
+  li {
+    border-bottom: 1px solid rgba(186,186,186,0.5);
+    margin-bottom: 0;
+    padding-bottom: 1em;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
 
 h2 {
   color: $wwl-green;
   font-size: 2.375rem;
   font-weight: 300;
+}
+
+p {
+  font-size: 1rem;
+}
+
+blockquote p {
+  &::before, &::after{
+    content: "\"";
+  }
+
+  font-weight: 400;
+  font-size: 1.375rem;
+  font-style: italic;
 }
 
 // Utility Classes
@@ -56,9 +80,78 @@ header {
 
   h1 {
     color: $white;
+    font-size: 2.75rem;
+    margin-bottom: 0.33em;
+  }
+
+  p {
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1.33em;
+    max-width: 680px;
+    margin: auto;
   }
 }
 
 .mozilla-logo img {
   width: 110px;
+}
+
+// Custom Components
+
+.btn-white, .btn-white:link {
+  border-color: $white;
+  background: none;
+  color: $white;
+}
+
+.post-card {
+  background: $white;
+  box-shadow: 5px 5px rgba(11,113,137,0.3);
+
+  &::before {
+    text-transform: uppercase;
+    color: $wwl-green;
+    content: 'Blog Post';
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    color: #30AAC6;
+  }
+
+  a {
+    font-weight: 500;
+    color: #2FB3D1;
+  }
+}
+
+// Partials
+
+.partial-cta {
+  color: $white;
+
+  h3 {
+    color: $white;
+    font-weight: 200;
+    margin: 0 0 0.5em 0;
+  }
+
+  p {
+    margin-bottom: 2em;
+  }
+}
+
+.partial-posts-preface {
+  h2, p, a {
+    color: $white;
+  }
+
+  h2 {
+    margin-bottom: 1em;
+  }
+
+  a {
+    text-decoration: underline;
+  }
 }

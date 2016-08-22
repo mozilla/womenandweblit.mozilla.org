@@ -50,17 +50,17 @@ html
         .col-sm-12.col-md-4
           img(src='images/FPO.svg')
       .row
-        .col-sm-12.col-md-9
+        .col-sm-12.col-md-8
           div
             include:markdown markdown/mcwg/summary.md
-        .col-sm-12.col-md-3
-          .bg-blue
+        .col-sm-12.col-md-4
+          .bg-blue.p-x-3.p-y-2.partial-cta
             include:markdown markdown/mcwg/cta.md
-            a.btn(href='#NEED_URL') Learn More
+            a.btn.btn-white(href='#NEED_URL') Learn More
 
   .container.m-y-2
     .row
-      .col-sm-12.m-b-2
+      .col-sm-12.m-b-1
         h2.center-text More of our Work
     .row
       .col-md-4
@@ -75,21 +75,37 @@ html
   .bg-blue.p-y-2.m-y-2
     .container
       .row
-        .col-sm-12.p-y-2.center-text
-          h2.m-b-2.white Diversity and Inclusion across Mozilla
-          p.white Our network is up to some exciting things! Here are some of the programs we’re working that focus on gender equality. Learn more about how our network is working on Web Literacy and Digital Inclusion by visiting our blog.
-      .row
+        .col-sm-12.p-y-2.center-text.partial-posts-preface
+          include:markdown markdown/posts-preface.md
+      .row.p-y-2
         .col-md-4
-          include:markdown markdown/posts/hive-nyc.md
+          .post-card.p-a-2
+            include:markdown markdown/posts/hive-nyc.md
         .col-md-4
-          include:markdown markdown/posts/mb-thoughts.md
+          .post-card.p-a-2
+            include:markdown markdown/posts/mb-thoughts.md
         .col-md-4
-          include:markdown markdown/posts/another.md
+          .post-card.p-a-2
+            include:markdown markdown/posts/another.md
 
   .container
-    .row
+    .row.p-y-3
       .col-sm-12.center-text
         h2 We are working with
         p Mozilla is proud to be working with a range of organizations who are collaborating to increase Web Literacy amongst women around the world. Visit their sites to see how they are changing the face of women online.
+    .row.p-y-1
+      .col-sm-12.col-md-4
+        img(src='images/FPO.svg')
+      .col-sm-12.col-md-4
+        img(src='images/FPO.svg')
+      .col-sm-12.col-md-4
+        img(src='images/FPO.svg')
+    .row.p-y-1
+      .col-sm-12.col-md-4
+        img(src='images/FPO.svg')
+      .col-sm-12.col-md-4
+        img(src='images/FPO.svg')
+      .col-sm-12.col-md-4
+        img(src='images/FPO.svg')
 
   footer
