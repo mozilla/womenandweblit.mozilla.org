@@ -22,6 +22,8 @@ ul {
 
 h2 {
   color: $wwl-green;
+  font-size: 2.375rem;
+  font-weight: 300;
 }
 
 // Utility Classes
@@ -31,7 +33,7 @@ h2 {
 }
 
 .bg-gray {
-  background: rgba(0,0,0,0.2);
+  background: rgba(209,209,209,0.2);
 }
 
 .bg-blue {
@@ -58,5 +60,5 @@ header {
 }
 
 .mozilla-logo img {
-  width: 10%;
+  width: 110px;
 }

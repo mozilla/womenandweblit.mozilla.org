@@ -22,19 +22,19 @@ html
     header.p-y-3
       .container
         a.mozilla-logo(href='https://www.mozilla.org')
-          img(src='images/mozilla-wordmark.svg',target='_blank')
+          img(src='images/mozilla-wordmark.svg',target='_blank').m-b-1
 
         h1.center-text Women & Web Literacy
         p.center-text Working towards an open, safe and innovative web for women everywhere.
 
   .container.m-y-2
-    .row
+    .row.m-b-1
       .col-sm-12
         h2 What We Do
     .row
-      .col-sm-6
+      .col-md-6
         include:markdown markdown/what-we-do/1.md
-      .col-sm-6
+      .col-md-6
         include:markdown markdown/what-we-do/2.md
 
   .bg-gray.m-y-2
@@ -42,41 +42,48 @@ html
       .row
         .col-sm-12
           h2.center-text Mozilla Clubs for Women and Girls
+      .row.p-y-3
+        .col-sm-12.col-md-4
+          img(src='images/FPO.svg')
+        .col-sm-12.col-md-4
+          img(src='images/FPO.svg')
+        .col-sm-12.col-md-4
+          img(src='images/FPO.svg')
       .row
-        .col-sm-12 TODO : IMAGES
-      .row
-        .col-sm-9
-          include:markdown markdown/mcwg/1.md
-        .col-sm-3.bg-blue.p-y-2
-          include:markdown markdown/mcwg/2.md
-          a.btn(href='#NEED_URL') Learn More
+        .col-sm-12.col-md-9
+          div
+            include:markdown markdown/mcwg/1.md
+        .col-sm-12.col-md-3
+          .bg-blue
+            include:markdown markdown/mcwg/2.md
+            a.btn(href='#NEED_URL') Learn More
 
   .container.m-y-2
     .row
-      .col-sm-12
+      .col-sm-12.m-b-2
         h2.center-text More of our Work
     .row
-      .col-sm-4
+      .col-md-4
         include:markdown markdown/resources/teaching-resources.md
-      .col-sm-4
+      .col-md-4
         include:markdown markdown/resources/case-studies.md
-      .col-sm-4
+      .col-md-4
         include:markdown markdown/resources/reports.md
     .row
       .col-sm-12.center-text View All Resources
 
-  .bg-blue.p-y-2
+  .bg-blue.p-y-2.m-y-2
     .container
       .row
-        .col-sm-12.center-text
-          h2.white Diversity and Inclusion across Mozilla
+        .col-sm-12.p-y-2.center-text
+          h2.m-b-2.white Diversity and Inclusion across Mozilla
           p.white Our network is up to some exciting things! Here are some of the programs we’re working that focus on gender equality. Learn more about how our network is working on Web Literacy and Digital Inclusion by visiting our blog.
       .row
-        .col-sm-4
+        .col-md-4
           include:markdown markdown/posts/hive-nyc.md
-        .col-sm-4
+        .col-md-4
           include:markdown markdown/posts/mb-thoughts.md
-        .col-sm-4
+        .col-md-4
           include:markdown markdown/posts/another.md
 
   .container
