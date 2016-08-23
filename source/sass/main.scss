@@ -103,6 +103,11 @@ header {
   border-color: $white;
   background: none;
   color: $white;
+
+  &:hover {
+    background: #fff;
+    color: #3fbee0;
+  }
 }
 
 .post-card {
