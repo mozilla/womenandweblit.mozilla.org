@@ -1,6 +1,21 @@
 @import '../../node_modules/mofo-bootstrap/dest/css/mofo-bootstrap';
 @import '../../node_modules/mofo-bootstrap/src/scss/custom/_colors';
 
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 544px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$bp-xs: #{map-get($grid-breakpoints, xs)}; // < 544px
+$bp-sm: #{map-get($grid-breakpoints, sm)}; // >= 544px
+$bp-md: #{map-get($grid-breakpoints, md)}; // >= 768px
+$bp-lg: #{map-get($grid-breakpoints, lg)}; // >= 992px
+$bp-xl: #{map-get($grid-breakpoints, xl)}; // >= 1200px
+
 // Non-Mofo-Bootstrap colors
 
 $wwl-green: #29a581;
@@ -22,10 +37,38 @@ ul {
   li {
     border-bottom: 1px solid rgba(186,186,186,0.5);
     margin-bottom: 0;
-    padding-bottom: 1em;
+    padding-bottom: 1rem;
 
     &:last-child {
       border-bottom: none;
+    }
+  }
+}
+
+.section-summary ul {
+  color: rgba(0,0,0,.9);
+  font-style: italic;
+  list-style-type: none;
+
+  @media screen and (max-width: $bp-md) {
+    padding-left: 1.4rem;
+  }
+
+  li {
+    float: left;
+    clear: both;
+    font-size: 1.2rem;
+    padding: .8rem 0;
+    margin: 0;
+    max-width: 75%;
+    position: relative;
+
+    &:before {
+      content: "•";
+      color: rgba(0,0,0,.2);
+      position: absolute;
+      left: -1rem;
+      font-weight: bold;
     }
   }
 }
@@ -40,20 +83,72 @@ p {
   font-size: 1rem;
 }
 
-blockquote p {
-  &::before, &::after{
-    content: "\"";
-  }
+blockquote {
+  margin-top: 2em;
 
-  font-weight: 400;
-  font-size: 1.375rem;
-  font-style: italic;
+  p {
+    position: relative;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 2rem;
+    font-size: 1.375rem;
+
+    &:before, &:after{
+      color: #d2ebf3;
+      font-size: 5rem;
+      display: inline-block;
+      height: 2rem;
+    }
+
+    &:before {
+      content: open-quote;
+      position: absolute;
+      left: -2.5rem;
+      top: -1.3rem;
+      line-height: 5rem;
+    }
+
+    &:after {
+      content: close-quote;
+      bottom: -2.6rem;
+      position: absolute;
+      margin-left: .3rem;
+      line-height: 0;
+      overflow: visible;
+    }
+
+    @media screen and (max-width: $bp-md) {
+      &:before, &:after{
+        color: #d2ebf3;
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+        opacity: 1;
+        margin: 0;
+        padding: 0;
+        display: inline;
+        font-family: inherit;
+      }
+    }
+  }
 }
 
 // Utility Classes
 
 .center-text {
   text-align: center;
+
+  h2 {
+    margin-bottom: .5em;
+  }
+
+  p {
+    max-width: 75%;
+    margin: 0 auto;
+  }
 }
 
 .bg-gray {
@@ -62,6 +157,13 @@ blockquote p {
 
 .bg-blue {
   background: #3fbee0;
+}
+
+.section-diversity {
+  background-image: url(../images/classroom-bg.png);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 
 .bg-white {
@@ -75,26 +177,62 @@ blockquote p {
 // Main Page
 
 header {
-  background: $wwl-green;
   color: $white;
+  background-image: url(../images/header-bg.png), linear-gradient(#229b79, #2cb190);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 6rem 0 4.5rem 0;
 
   h1 {
     color: $white;
     font-size: 2.75rem;
-    margin-bottom: 0.33em;
+    padding: 0;
+    margin: 0 0 .25rem 0;
+    line-height: 2.5rem;
+
+    .ampersand {
+      background: url(../images/ampersand.svg);
+      background-size: contain;
+      color: rgba(255,255,255,0);
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 0 1.1rem;
+      min-height: 3.9rem;
+      display: inline-block;
+      line-height: 2.75rem;
+      position: relative;
+      top: -.5rem;
+    }
+
   }
 
   p {
     font-size: 2rem;
     font-style: italic;
-    line-height: 1.33em;
+    line-height: 2.4rem;
     max-width: 680px;
     margin: auto;
+    opacity: .9;
+    font-weight: 200;
   }
 }
 
-.mozilla-logo img {
-  width: 110px;
+.mozilla-logo {
+  position: absolute;
+  left: 1rem;
+  top: .9rem;
+  opacity: .7;
+  transition: opacity .1s ease-out;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  img {
+    width: 6rem;
+  }
 }
 
 // Custom Components
@@ -103,6 +241,7 @@ header {
   border-color: $white;
   background: none;
   color: $white;
+  transition: all .1s ease-out;
 
   &:hover {
     background: #fff;
@@ -113,50 +252,340 @@ header {
 .post-card {
   background: $white;
   box-shadow: 5px 5px rgba(11,113,137,0.3);
-
-  &::before {
-    text-transform: uppercase;
-    color: $wwl-green;
-    content: 'Blog Post';
-  }
+  height: 100%;
+  position: relative;
+  padding-bottom: 4rem !important;
 
   h4 {
-    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: $wwl-green;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
     color: #30AAC6;
+    margin: 1.5rem 0;
   }
 
   a {
     font-weight: 500;
     color: #2FB3D1;
+    position: absolute;
+    bottom: 1.2rem;
+  }
+
+  p {
+    color: rgba(0,0,0,.6);
+    line-height: 1.5rem;
+  }
+
+  @media screen and (max-width: $bp-md) {
+    padding-bottom: 1rem !important;
+    margin-bottom: 2rem;
+    height: auto;
+
+    a {
+      position: relative;
+      bottom: 0;
+    }
   }
 }
+@media screen and (max-width: $bp-md) {
+  .diversity .col-md-4:last-child .post-card {
+    margin-bottom: 0;
+  }
+}
+
 
 // Partials
 
 .partial-cta {
   color: $white;
+  padding: 2rem;
 
-  h3 {
+  h1 {
     color: $white;
     font-weight: 200;
-    margin: 0 0 0.5em 0;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
   }
 
   p {
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
   }
 }
 
 .partial-posts-preface {
+
   h2, p, a {
     color: $white;
   }
 
-  h2 {
-    margin-bottom: 1em;
+  a {
+    text-decoration: underline;
+  }
+}
+
+.section-our-work {
+
+  h4 {
+    color: #999;
+    margin-bottom: 1.3rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  li {
+    font-size: 1rem;
+    line-height: 1.2rem;
+
+    a {
+      color: #30aac6;
+
+      &[href$='.pdf']:after {
+        content: "PDF";
+        background: #30aac6;
+        color: white;
+        font-size: .7rem;
+        font-weight: 500;
+        padding: 0 .2rem;
+        position: relative;
+        top: -.15rem;
+        margin-left: .4rem;
+        opacity: .7;
+        border-radius: 1px;
+      }
+
+      &:hover:after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+footer {
+  margin-top: 4rem;
+}
+
+.mofooter {
+  background: #4d4f53;
+  color: $white;
+  text-align: center;
+  padding: 2.8125rem 0.625rem;
+
+  .icon-container {
+    margin: 1.25rem 0;
+
+    .icon {
+      cursor: pointer;
+      display: inline-block;
+      font-weight: 300;
+      font-size: 1rem;
+
+      img {
+        width: 1.25rem;
+      }
+
+      .footer-icon {
+        opacity: 0.5;
+      }
+
+      a {
+        color: $white;
+        opacity: 0.5;
+        text-decoration: none;
+      }
+
+      &:hover {
+        a,
+        .footer-icon {
+          transition: opacity .15s ease-out;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .footer-content {
+    max-width: 35.625rem;
+    margin: 0 auto;
+
+    p {
+      font-size: 0.875rem;
+      color: rgba($white, 0.5);
+      line-height: 1.5rem;
+      margin: 0;
+
+      a {
+        color: rgba($white, 0.8);
+        line-height: inherit;
+
+        &:hover {
+          color: rgba($white, 1);
+        }
+      }
+    }
+  }
+
+  .icons {
+    margin-bottom: 1.25rem;
+  }
+
+  .logo {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 0.0625rem solid #666;
+    display: inline-block;
+
+    @media screen and (min-width: $bp-md) {
+      border-bottom: 0;
+      border-right: 0.0625rem solid #666;
+      padding-bottom: 0;
+      padding-right: 1.25rem;
+      margin-bottom: 0;
+      margin-right: 1.25rem;
+    }
+  }
+
+  @media screen and (max-width: $bp-md) {
+    .icon-container {
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 2.8125rem;
+      }
+
+      .footer-icon {
+        display: block;
+        margin: 0.375rem auto 0.375rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: $bp-md) {
+    .footer-content {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      justify-content: center;
+
+      .footer-icon {
+        margin-left: 0.625rem;
+      }
+
+      p {
+        text-align: left;
+        width: calc(100% - 10.375rem);
+      }
+    }
+    .icon-container {
+      display: inline-block;
+      margin: 0 1.125rem;
+
+      .icon {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+
+        .footer-icon {
+          margin: 0 0.625rem 0 0;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.section-partner-logos {
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: $bp-md) {
+    margin-bottom: 0;
+    padding-bottom: 0 !important;
   }
 
   a {
-    text-decoration: underline;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    transition: opacity .1s ease-out;
+    text-align: center;
+    height: 8rem;
+    line-height: 8rem;
+    width: 100%;
+
+    img {
+      max-height: 6rem;
+      max-width: 85%;
+      vertical-align: middle;
+
+      &.logo-itu {
+        transform: scale(1.3);
+        position: relative;
+        top: -.5rem;
+      }
+
+      &.logo-un-women {
+        transform: scale(.9);
+      }
+
+      &.logo-web-foundation {
+        transform: scale(.95);
+      }
+    }
+
+    &:hover{
+      opacity: .7;
+    }
+  }
+
+  @media screen and (max-width: $bp-md) {
+
+    a {
+      height: auto;
+    }
+
+    a img {
+      display: block;
+      margin: 1.3rem auto 1.3rem auto;
+
+      &.logo-itu {
+        transform: scale(1.2);
+        margin: 1rem auto 2rem auto;
+      }
+
+      &.logo-dot {
+        width: 60%;
+      }
+
+      &.logo-un-women {
+        transform: scale(1);
+      }
+
+      &.logo-world-pulse {
+        width: 60%;
+      }
+
+      &.logo-empower-women {
+        width: 60%;
+      }
+
+      &[src*="webfoundation"] {
+        transform: scale(1);
+      }
+    }
+  }
+
+}
+
+.wide-only {
+  @media screen and (max-width: $bp-md) {
+   display: none;
   }
 }

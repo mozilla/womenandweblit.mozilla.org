@@ -16,18 +16,19 @@ html
 
     link(rel='stylesheet', href='css/main.compiled.css')
     link(rel='stylesheet', href='//code.cdn.mozilla.net/fonts/fira.css')
+    link(rel='icon', href='images/favicon.png')
 
     title Women and Web Literacy
   body
-    header.p-y-3
+    header
       .container
         a.mozilla-logo(href='https://www.mozilla.org')
-          img.m-b-1(src='images/mozilla-wordmark.svg',target='_blank')
+          img(src='images/mozilla-wordmark.svg',target='_blank')
 
-        h1.center-text Women & Web Literacy
-        p.center-text Working towards an open, safe and innovative web for women everywhere.
+        h1.center-text Women #[span.ampersand &] Web Literacy
+        p.center-text Working towards an open, safe and inclusive web for women everywhere
 
-  .container.m-y-2
+  .container.m-y-3.section-summary
     .row.m-b-1
       .col-sm-12
         h2 What We Do
@@ -37,28 +38,28 @@ html
       .col-md-6
         include:markdown markdown/what-we-do/description.md
 
-  .bg-gray.m-y-2
+  .bg-gray.m-y-3
     .container.p-y-3
       .row
         .col-sm-12
           h2.center-text Mozilla Clubs for Women and Girls
       .row.p-y-3
+        .col-sm-12.col-md-4.wide-only
+          img(src='images/clubs/clubs-inside.jpg')
+        .col-sm-12.col-md-4.wide-only
+          img(src='images/clubs/clubs-outside.jpg')
         .col-sm-12.col-md-4
-          img(src='images/FPO.svg')
-        .col-sm-12.col-md-4
-          img(src='images/FPO.svg')
-        .col-sm-12.col-md-4
-          img(src='images/FPO.svg')
+          img(src='images/clubs/clubs-standing-presenter.jpg')
       .row
         .col-sm-12.col-md-8
           div
             include:markdown markdown/clubs/summary.md
         .col-sm-12.col-md-4
-          .bg-blue.p-x-2.p-y-2.partial-cta
+          .bg-blue.partial-cta
             include:markdown markdown/clubs/cta.md
             a.btn.btn-white(href='https://learning.mozilla.org/clubs') Learn More
 
-  .container.m-y-2
+  .container.m-y-3.section-our-work
     .row
       .col-sm-12.m-b-1
         h2.center-text More of our Work
@@ -69,10 +70,8 @@ html
         include:markdown markdown/resources/case-studies.md
       .col-md-4
         include:markdown markdown/resources/reports.md
-    .row
-      .col-sm-12.center-text View All Resources
 
-  .bg-blue.p-y-2.m-y-2
+  .bg-blue.p-y-2.m-y-2.section-diversity
     .container
       .row
         .col-sm-12.p-y-2.center-text.partial-posts-preface
@@ -93,19 +92,52 @@ html
       .col-sm-12.center-text
         h2 We are working with
         p Mozilla is proud to be working with a range of organizations who are collaborating to increase Web Literacy amongst women around the world. Visit their sites to see how they are changing the face of women online.
-    .row.p-y-1
-      .col-sm-12.col-md-4
-        img(src='images/FPO.svg')
-      .col-sm-12.col-md-4
-        img(src='images/FPO.svg')
-      .col-sm-12.col-md-4
-        img(src='images/FPO.svg')
-    .row.p-y-1
-      .col-sm-12.col-md-4
-        img(src='images/FPO.svg')
-      .col-sm-12.col-md-4
-        img(src='images/FPO.svg')
-      .col-sm-12.col-md-4
-        img(src='images/FPO.svg')
+    .row.p-y-1.section-partner-logos
+      .col-md-4.col-sm-12.col-xs-12
+        a(href='http://webfoundation.org/our-work/projects/womens-rights-online/')
+          img.logo-web-foundation(src='images/partners/webfoundation.png')
+      .col-md-4.col-sm-12.col-xs-12
+        a(href='http://www.itu.int/en/Pages/default.aspx')
+          img.logo-itu(src='images/partners/itu.png')
+      .col-md-4.col-sm-12.col-xs-12
+        a(href='https://www.dotrust.org/')
+          img.logo-dot(src='images/partners/dot.jpg')
+    .row.p-y-1.section-partner-logos
+      .col-md-4.col-sm-12.col-xs-12
+        a(href='http://www.unwomen.org/en')
+          img.logo-un-women(src='images/partners/unwomen.png')
+      .col-md-4.col-sm-12.col-xs-12
+        a(href='https://www.worldpulse.com/en')
+          img.logo-world-pulse(src='images/partners/world-pulse.svg')
+      .col-md-4.col-sm-12.col-xs-12
+        a(href='http://empowerwomen.org/')
+          img.logo-empower-women(src='images/partners/empower-women.png')
 
   footer
+    .mofooter
+      .icons
+        .icon-container
+          .icon
+            img.footer-icon(src='images/footer-icon-twitter.svg')
+            a(href='https://twitter.com/mozlearn') Twitter
+        .icon-container
+          .icon
+            img.footer-icon(src='images/footer-icon-facebook.svg')
+            a(href='https://www.facebook.com/groups/mozillaclubs/') Facebook Group
+        .icon-container
+          .icon
+            img.footer-icon(src='images/footer-icon-email.svg')
+            a(href='mailto:womenandweb@mozillafoundation.org') Email
+        .icon-container
+          .icon
+            img.footer-icon(src='images/footer-icon-github.svg')
+            a(href='https://github.com/mozilla/womenandweb/') Github
+        .icon-container
+          .icon
+            img.footer-icon(src='images/footer-icon-terms.svg')
+            a(href='https://www.mozilla.org/en-US/about/legal/') Legal
+      .footer-content
+        a.logo(href='https://mozilla.org')
+          img(height='30', width='105', src='images/mozilla-wordmark.svg')
+
+        p Mozilla is a global non-profit dedicated to putting you in control of your online experience and shaping the future of the web for the public good. Visit us at #[a(href='https://mozilla.org', target='_blank') mozilla.org]
