@@ -32,3 +32,13 @@ This will install all dependencies, build the code, start a server at [http://12
     ├── markdown <- Markdown partials
     └── sass <- Sass code
 ```
+
+### Deployment
+
+#### Production
+
+Any commits to the `master` branch on this repo will trigger an automatic build and deploy to [GitHub Pages](https://mozilla.github.io/womenandweb/).
+
+#### Staging
+
+There is currently no common staging environment for this project. However, you can easily deploy a staged build to your own fork using the following command: `npm run stage REMOTE`. Be sure to substitute `REMOTE` with the name of your personal remote. Also, be sure not to have `npm start` or `npm server` running when you run the staging command.
