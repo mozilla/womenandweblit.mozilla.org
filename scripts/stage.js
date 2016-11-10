@@ -1,8 +1,4 @@
-let NodeGit = require(`nodegit`);
 let shell = require(`shelljs`);
-let pathToRepo = require(`path`).resolve(`.`);
-
-let getStatus = (repo) => repo.getStatus();
 
 let runDeploy = (remote) => {
   shell.echo(`Running deployment now...`);
@@ -33,21 +29,10 @@ let runDeploy = (remote) => {
   shell.echo(`Finished deploying!`);
 };
 
-// Check that local repo is clean before deploying
-
-NodeGit.Repository.open(pathToRepo)
-  .then(getStatus)
-  .then(status => {
-    if (status.length) {
-      shell.echo(`Repo is dirty. Aborting deploy!`);
-      shell.exit(1);
-    } else {
-      // Check for remote argument
-      if (process.argv[2]) {
-        runDeploy(process.argv[2]);
-      } else {
-        shell.echo(`Missing target remote!`);
-        shell.exit(2);
-      }
-    }
-  });
+// Check for remote argument
+if (process.argv[2]) {
+  runDeploy(process.argv[2]);
+} else {
+  shell.echo(`Missing target remote!`);
+  shell.exit(2);
+}
