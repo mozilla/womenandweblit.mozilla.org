@@ -1,7 +1,8 @@
 # Women and Web Literacy
 
 [![Build Status](https://travis-ci.org/mozilla/womenandweb.svg)](https://travis-ci.org/mozilla/womenandweb)
-[![Shipping fast with zenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.com)
+[![Dependency Status](https://david-dm.org/mozilla/womenandweb.svg)](https://david-dm.org/mozilla/womenandweb)
+[![Dev Dependency Status](https://david-dm.org/mozilla/womenandweb/dev-status.svg)](https://david-dm.org/mozilla/womenandweb/?type=dev)
 [![Uses Mofo Standards](https://MozillaFoundation.github.io/mofo-standards/badge.svg)](https://github.com/MozillaFoundation/mofo-standards)
 
 This repository hosts the code used to power the Women and Web Literacy hub's website.
